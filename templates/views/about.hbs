@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style/style.css">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap" rel="stylesheet">
+  <title>My bible app</title>
+</head>
+
+<body>
+  {{>header}}
+  <main>
+    <section class="grid-about">
+      <article>
+        <img src="./img/portrait small.jpg" alt="" class="portrait">
+        <h2 class="about-title">About me</h2>
+        <p class="about-text">My name is Brian Bawuah. I am a Communication & Multimedia student with a passion for creating meaningful things on the web. You can use this bible application to read chapters or verses. This bible uses the <strong>American Standard Version</strong></p>
+          <br>
+          <p>For developing this webapplication I used Node.js on the server for getting data out of the <a href="https://docs.api.bible/docs/overview" class="api">Bible API.</a> A little bit of CSS and Javascript on the client-side. I used Handlebars as a template engine to serve dynamic HTML pages to the client.</p>
+          <p class="greet">Enjoy!</p>
+      </article>
+    </section>
+  </main>
+  {{>footer}}
+</body>
+
+</html>
