@@ -1,6 +1,9 @@
 {
   "name": "bible-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "v10.15.2"
+  },
   "description": "",
   "main": "app.js",
   "scripts": {
