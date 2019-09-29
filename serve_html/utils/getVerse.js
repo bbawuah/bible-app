@@ -23,7 +23,7 @@ const getVerse = (url, bibleId, book, chapter, verse, callback) => {
       const data = JSON.parse(body);
       callback(undefined, data);
     } else {
-      callback('Oops.. Fill in a existing verse', undefined);
+      callback('Oops.. Fill in an existing verse', undefined);
     }
   });
 }

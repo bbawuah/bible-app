@@ -23,7 +23,7 @@ const getChapter = (url, bibleId, book, chapter, callback) => {
       const data = JSON.parse(body);
       callback(undefined, data);
     } else {
-      callback('Oops.. Fill in a existing chapter', undefined);
+      callback('Oops.. Fill in an existing chapter', undefined);
     }
   });
 }
