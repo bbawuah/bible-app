@@ -28,7 +28,7 @@ btn.addEventListener('click', (e) => {
         if (data.err) {
           title.textContent = data.err;
         }
-        console.log(data);
+
 
         loader.style.visibility = 'hidden';
         title.textContent = data.chapterData.data.reference;
@@ -77,7 +77,6 @@ prevBtn.addEventListener('click', (e) => {
         if (data.err) {
           title.textContent = data.err;
         }
-        console.log(data);
 
         loader.style.visibility = 'hidden';
         title.textContent = data.chapterData.data.reference;
@@ -96,7 +95,7 @@ prevBtn.addEventListener('click', (e) => {
         if (data.err) {
           title.textContent = data.err;
         }
-        console.log(data);
+        
 
         loader.style.visibility = 'hidden';
         title.textContent = data.verseData.data.reference;
@@ -133,7 +132,7 @@ nextBtn.addEventListener('click', (e) => {
         if (data.err) {
           title.textContent = data.err;
         }
-        console.log(data);
+        
         loader.style.visibility = 'hidden';
 
         title.textContent = data.chapterData.data.reference;
@@ -154,7 +153,7 @@ nextBtn.addEventListener('click', (e) => {
         if (data.err) {
           title.textContent = data.err;
         }
-        console.log(data);
+        
 
         loader.style.visibility = 'hidden';
         title.textContent = data.verseData.data.reference;
