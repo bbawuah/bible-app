@@ -7,8 +7,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon app.js"
+    "start": "node serve_html/app.js",
+    "dev": "nodemon serve_html/app.js"
   },
   "keywords": [],
   "author": "",
