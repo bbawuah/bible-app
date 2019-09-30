@@ -10,10 +10,7 @@
   <title>My bible app</title>
 </head>
 
-<body>
-  {{>header}}
-  <main>
-
+<body> {{>header}} <main>
     <section class="grid">
       <section>
         <form action="">
@@ -90,16 +87,14 @@
             </select>
           </label>
           <label for="chapter">
-            <input type="number" name="chapter" class="number" placeholder="Chapter">
+            <input type="number" name="chapter" class="number" min="1" placeholder="Chapter">
           </label>
           <label for="verse">
             <input type="number" name="verse" class="verse" placeholder="Verse">
           </label>
-          <button>Search</button>
-          {{!-- <button id="current-loc">Get current location</button> --}}
+          <button>Search</button> {{!-- <button id="current-loc">Get current location</button> --}}
         </form>
-          <div class="gooey">{{!Deze animatie is niet van mij}}
-          <span class="dot"></span>
+        <div class="gooey">{{!Deze animatie is niet van mij}} <span class="dot"></span>
           <div class="dots">
             <span></span>
             <span></span>
@@ -108,22 +103,23 @@
         </div>
       </section>
       <section>
+        <div class="nav">
+          <button class="prev">Prev</button>
+          <button class="next">Next</button>
+        </div>
+        <p><a href="https://docs.api.bible/docs/overview" class="ref"> API.Bible </a></p>
         <article class="output">
           <h2 class="title"></h2>
           <h3 class="subtitle"></h3>
           <div class="text"></div>
-        </article>
-        <div class="nav">
-          <button id="prev">Prev</button>
-          <button id="next">Next</button>
+           <div class="nav">
+          <button class="prev">Prev</button>
+          <button class="next">Next</button>
         </div>
-        <a href="https://docs.api.bible/docs/overview" class="ref">
-          <p>API.Bible</p>
-        </a>
-      </section>
+        </article>
+      </section> {{!-- 2 --}}
     </section>
-  </main>
-  {{>footer}}
+  </main> {{>footer}}
   <script src="app.js"></script>
 </body>
 

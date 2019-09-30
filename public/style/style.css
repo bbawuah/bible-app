@@ -1,326 +1,203 @@
-* {
-  box-sizing: border-box;
+*, *:before, *:after {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+@import url('https://rsms.me/inter/inter.css');
 html {
-  background: rgb(12, 6, 17);
-  background: linear-gradient(90deg, rgba(12, 6, 17, 1) 0%, rgba(12, 47, 71, 1) 52%, rgba(9, 7, 71, 0.8127626050420168) 100%);
-  background-size: cover;
+  font-family: 'Inter', sans-serif;
 }
 
-body {
-  font-family: 'Helvetica', sans-serif;
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'Inter var', sans-serif;
+  }
 }
 
-header:first-of-type {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 2em 0em;
-}
-
-ul {
-  display: flex;
-  list-style-type: none;
-}
-
-li {
-  margin: 0 1em;
-}
-
-a {
-  align-self: center;
-  text-decoration: none;
-  font-size: 1.3em;
+html, body {
+  font-size: 16px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
+  /* background: #edf2f7; */
+  line-height: 1.35;
 }
 
 h1 {
-  font-weight: bold;
-  text-align: center;
-  color: #fff;
-  font-size: 1.4em;
-  letter-spacing: .1em;
-  text-transform: capitalize;
-  margin-left: 1em;
+  font-size: 2.441rem;
 }
 
-footer p:first-of-type {
-  color: rgb(255, 255, 255);
-}
-
-footer p, a {
-  color: rgb(255, 255, 255);
-  font-weight: 700;
-}
-
-.grid {
-  /* align-content: center; */
-  background: rgb(212, 212, 212);
-  grid-template-columns: repeat(auto-fill, minmax(600px), 1fr);
-}
-
-.grid-about {
-  background: rgb(255, 255, 255);
-  grid-template-columns: repeat(auto-fill, minmax(600px), 1fr);
-  height: 100%;
-  padding-bottom: 20%;
-}
-
-.api {
-  color: rgb(44, 53, 58);
-}
-
-.greet {
-  margin-top: 2em;
-  text-align: center;
-  font-weight: 700;
-  font-size: 1.5em;
-  color: rgb(54, 54, 54);
-}
-
-strong {
-  color: rgb(49, 49, 49);
-}
-
-.portrait {
-  margin: 2em 0em;
-}
-
-.grid-about article {
-  justify-self: center;
-  width: 70vw;
-}
-
-.about-title {
-  align-self: start;
-}
-
-.about-text {
-  align-self: start;
-}
-
-input, select, button {
-  height: 2.5em;
-  border-radius: 1.1em;
-  -webkit-box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.56);
-  box-shadow: 1px 2px 5px -1px rgba(0, 0, 0, 0.56);
-}
-
-/*
-https://css-tricks.com/snippets/css/glowing-blue-input-highlights/
-*/
-
-input[type=number], textarea, select {
-  -webkit-transition: all 0.30s ease-in-out;
-  -moz-transition: all 0.30s ease-in-out;
-  -ms-transition: all 0.30s ease-in-out;
-  -o-transition: all 0.30s ease-in-out;
-  outline: none;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 1px solid #DDDDDD;
-}
-
-input[type=number]:focus, textarea:focus, select:focus {
-  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 1px solid rgba(81, 203, 238, 1);
-}
-
-input {
-  width: 6em;
-}
-
-input::placholder {
-  padding-left: .5em;
-}
-
-button {
-  width: 5em;
-}
-
-section {
-  display: grid;
-}
-
-.grid section:first-of-type {
-  background: rgb(255, 255, 255);
-  min-height: 50vh;
-}
-
-.grid section:nth-of-type(2) {
-  background: rgb(247, 247, 247);
-  /* justify-items: center; */
-  min-height: 50vh;
-  align-content: space-between;
-}
-
-.grid section:nth-of-type(2) article {
-  justify-self: center;
-  width: 80vw;
-}
-
-.ref {
-  justify-self: end;
-  font-size: .8em;
-  color: darkgray;
-}
-
-.grid section:nth-of-type(2) h2 {
-  margin-top: .8em;
-  letter-spacing: .1em;
-}
-
-.grid section:nth-of-type(2) h3 {
-  font-size: 1em;
-  color: rgb(82, 82, 82);
+h2 {
+  font-size: 1.953rem;
   margin-bottom: 1em;
 }
 
-.nav {
-  margin: 1em 0;
-  place-self: center;
-  visibility: hidden;
+h3 {
+  font-size: 1.563rem;
 }
 
-form {
-  display: inline-block;
-  place-self: center;
-  margin-bottom: 7em;
+h4 {
+  font-size: 1.25rem;
 }
 
-form p {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: .8em;
-  margin-bottom: .8em;
+p {
+  font-size: 1em;
+}
+
+a, a:visited {
+  color: #1a202c;
+  text-decoration: none;
+}
+
+header, footer, section.grid-about {
+  padding: 2vmax 8vmax;
+  /* width:  */
+  /* background: #f7fafc; */
+  background: #edf2f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.grid-about img {
+  border-radius: 100%;
+  margin-bottom: 2em;
+}
+
+.grid-about p {
+  max-width: 60ch;
+}
+
+.grid-about article {
+  margin-bottom: 8vmax;
 }
 
 footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  font-size: .8em;
-  font-weight: bold;
-  margin: 2em 1em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
-span {
-  font-weight: 700;
-  color: rgba(9, 7, 71, 0.8127626050420168);
-  margin: 0 .1em;
+section {
+  padding: 2vmax 8vmax;
 }
 
-/*
-https://codepen.io/andreasstorm/pen/QZEKWr
-*/
-
-.gooey {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 142px;
-  height: 40px;
-  margin: -20px 0 0 -71px;
-  background: #fff;
-  filter: contrast(20);
-  visibility: hidden;
-}
-
-.gooey .dot {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  top: 12px;
-  left: 15px;
-  filter: blur(4px);
-  background: #000;
-  border-radius: 50%;
-  transform: translateX(0);
-  animation: dot 2.8s infinite;
-}
-
-.gooey .dots {
-  transform: translateX(0);
-  margin-top: 12px;
-  margin-left: 31px;
-  animation: dots 2.8s infinite;
-}
-
-.gooey .dots span {
-  display: block;
-  float: left;
-  width: 16px;
-  height: 16px;
-  margin-left: 16px;
-  filter: blur(4px);
-  background: #000;
-  border-radius: 50%;
-}
-
-@-moz-keyframes dot {
-  50% {
-    transform: translateX(96px);
+@media screen and (max-width: 700px) {
+  section {
+    padding: 2vmax;
   }
-}
-
-@-webkit-keyframes dot {
-  50% {
-    transform: translateX(96px);
+  header, footer, section.grid-about {
+    padding: 2vmax;
   }
-}
-
-@-o-keyframes dot {
-  50% {
-    transform: translateX(96px);
-  }
-}
-
-@keyframes dot {
-  50% {
-    transform: translateX(96px);
-  }
-}
-
-@-moz-keyframes dots {
-  50% {
-    transform: translateX(-31px);
-  }
-}
-
-@-webkit-keyframes dots {
-  50% {
-    transform: translateX(-31px);
-  }
-}
-
-@-o-keyframes dots {
-  50% {
-    transform: translateX(-31px);
-  }
-}
-
-@keyframes dots {
-  50% {
-    transform: translateX(-31px);
-  }
-}
-
-@media (max-width: 371px) {
-  button {
-    margin: auto;
-    margin-top: 1em;
+  input, button, select {
     display: block;
+    margin-bottom: 0.5em;
+    width: 100%;
   }
-  h1 {
-    font-size: 1.5em;
+  section.grid {
+    padding: 4vmax 0;
   }
-  a {
-    font-size: 1em;
+  .nav {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
   }
+  .nav button {
+    height: initial;
+    margin-right: 0.5em;
+  }
+}
+
+header ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+header ul li {
+  display: inline;
+}
+
+form input, form option, form select, form button, form button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 3vmin;
+  border-radius: 8px;
+  border: none;
+  background: #edf2f7;
+  font-weight: 600;
+  font-size: 1em;
+  margin-right: 0.5em;
+}
+
+form button {
+  background: #4fd1c5;
+  color: white;
+}
+
+form p {
+  padding-bottom: 1vmax;
+}
+
+section[class] section:nth-child(2) {
+  background: #e2e8f0;
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  /* max-height: 50vmax; */
+  overflow-y: scroll;
+  margin-bottom: 8em;
+  border-radius: 8px;
+}
+
+section[class] section article {
+  grid-column: 1 / -1;
+  padding: 2vmax 0;
+}
+
+section[class] section:nth-child(2) button {
+  /* height: 2vmax; */
+  padding: 1vmax 2vmax;
+  border-radius: 8px;
+  border: none;
+  background: #4fd1c5;
+  color: white;
+  font-weight: 600;
+  font-size: 1em;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+section[class] section>p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+section[class] section:nth-child(2)>a {
+  /* align-self: flex-end; */
+}
+
+.text p {
+  font-size: 1rem;
+  margin: 1vmax 0;
+}
+
+.text p span {
+  margin-right: 0.5rem;
+  font-weight: 500;
+  /* display: block; */
+  margin-top: 0.5em;
+}
+
+.current, p a:hover, li a:hover {
+  border-bottom: 2px solid #4299e1;
+}
+
+.nav {
+  visibility: hidden;
+  opacity: 0;
 }
