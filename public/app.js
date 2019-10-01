@@ -60,7 +60,7 @@ btn.addEventListener('click', (e) => {
     fetch(`/bible?book=${book.value}&chapter=${number.value}&verse=${verse.value}`).then((response) => {
       response.json().then(({ err, verseData, bookData }) => {
         if ({ err }) {
-          console(err);
+          title.textContent = err;
         }
 
         title.textContent = verseData.data.reference;
