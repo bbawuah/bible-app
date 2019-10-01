@@ -2,6 +2,9 @@ const request = require('request');
 
 const getBook = (url, bibleId, book, callback) => {
   const options = {
+    /*
+    Hier maak ik the endpoint van de api
+    */
     uri: `${url}${bibleId}/books/${book}`,
     headers: {
       'api-key': '90219021be8ec41093e50f889350a668'

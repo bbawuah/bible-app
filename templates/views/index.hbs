@@ -10,14 +10,18 @@
   <title>My bible app</title>
 </head>
 
-<body> {{>header}} <main>
+<body> 
+  {{>header}}
+   <main>
     <section class="grid">
+      {{!-- Section van input --}}
       <section>
         <form action="">
           <p>Find your favorite bible verse</p>
           <label for="books">
+            {{!-- Ik zoek eigenlijk een manier waarmee de options kan inladen uit de Bible api.. --}}
             <select name="books" id="books">
-              <option value="LOL">Select a book</option>
+              <option value="">Select a book</option>
               <option value="GEN">Genesis</option>
               <option value="EXO">Exodus</option>
               <option value="LEV">Leviticus</option>
@@ -92,16 +96,10 @@
           <label for="verse">
             <input type="number" name="verse" class="verse" placeholder="Verse">
           </label>
-          <button>Search</button> {{!-- <button id="current-loc">Get current location</button> --}}
+          <button>Search</button>
         </form>
-        <div class="gooey">{{!Deze animatie is niet van mij}} <span class="dot"></span>
-          <div class="dots">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
       </section>
+      {{!-- Section van output --}}
       <section>
         <div class="nav">
           <button class="prev">Prev</button>
@@ -117,7 +115,7 @@
           <button class="next">Next</button>
         </div>
         </article>
-      </section> {{!-- 2 --}}
+      </section>
     </section>
   </main> {{>footer}}
   <script src="app.js"></script>

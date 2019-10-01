@@ -12,6 +12,9 @@ const getChapter = (url, bibleId, book, chapter, callback) => {
   const chapterId = `${book}.${chapter}`;
 
   const options = {
+    /*
+    Hier maak ik the endpoint van de api
+    */
     uri: `${url}${bibleId}/chapters/${chapterId}`,
     headers: {
       'api-key': '90219021be8ec41093e50f889350a668'

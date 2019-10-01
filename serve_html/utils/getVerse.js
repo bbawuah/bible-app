@@ -12,6 +12,9 @@ const getVerse = (url, bibleId, book, chapter, verse, callback) => {
   const verseId = `${book}.${chapter}.${verse}`;
 
   const options = {
+    /*
+    Hier maak ik the endpoint van de api
+    */
     uri: `${url}${bibleId}/verses/${verseId}`,
     headers: {
       'api-key': '90219021be8ec41093e50f889350a668'

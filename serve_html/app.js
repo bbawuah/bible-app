@@ -1,15 +1,29 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
+
+
+/*
+Voor deployment redenen heb ik een logical operator geplaatst in mijn port variabel.
+*/
 const port = process.env.PORT || 3000;
+
+/*
+De volgende javascript files laad ik in om ze te gebruiken in deze file. Zo heb ik meer overzicht en verdeel ik code voor verschillende functies.
+
+*/
 const getBook = require('./utils/getBook');
 const getChapter = require('./utils/getChapter');
 const getVerse = require('./utils/getVerse');
 
+//Hiermee maak ik een Express applicatie
 const app = express();
 
 
-//configuration for hbs
+/*
+Met de volgende code geef ik de paths naar mijn template files. Deze ga ik nodig hebben voor mijn template engine 
+
+*/
 const publicDirectoryPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
@@ -18,26 +32,34 @@ app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
 
+/*
+app.use wordt gebruikt bij middleware functions. Wanneer er een request binnen komt zal deze functie worden afgevuurd voordat request is voltooid. 
+
+In dit geval wordt na elk request ee html file opgeslagen in mijn public file.
+*/
 app.use(express.static(publicDirectoryPath));
+
+/*
+Dit is code die ik later nodig ga hebben in de functies onderaan. De reden dat ik deze code hier heb geplaatst is omdat ik deze niet wilde dupliceren. 
+
+Ik geef ze nu telkens mee met in de paramaters van de functies
+
+*/
 
 const url = `https://api.scripture.api.bible/v1/bibles/`;
 const bibleId = '06125adad2d5898a-01';
 
-// const bookId = 'MAT';
-// const chapterId = 'MAT.5';
-// const verseId = 'MAT.5.5';
+/*
 
-
-//OBJECT OPTIONS
-// const bibleApiEndpoints = {
-//   bible: `https://api.scripture.api.bible/v1/bibles/${bibleId}`,
-//   books: `https://api.scripture.api.bible/v1/bibles/${bibleId}/books/${input2}`,
-//   chapters: `https://api.scripture.api.bible/v1/bibles/${bibleId}/books/${input2}/chapters`,
-//   chapter: `https://api.scripture.api.bible/v1/bibles/${bibleId}/chapters/${input2}`,
-//   verses: `https://api.scripture.api.bible/v1/bibles/${bibleId}/chapters/${input2}/verses`,
-//   verse: `https://api.scripture.api.bible/v1/bibles/${bibleId}/verses/${input2}`
-
-// }
+BibleApiEndpoints 
+  bible: `https://api.scripture.api.bible/v1/bibles/${bibleId}`,
+  books: `https://api.scripture.api.bible/v1/bibles/${bibleId}/books/${input2}`,
+  chapters: `https://api.scripture.api.bible/v1/bibles/${bibleId}/books/${input2}/chapters`,
+  chapter: `https://api.scripture.api.bible/v1/bibles/${bibleId}/chapters/${input2}`,
+  verses: `https://api.scripture.api.bible/v1/bibles/${bibleId}/chapters/${input2}/verses`,
+  verse: `https://api.scripture.api.bible/v1/bibles/${bibleId}/verses/${input2}`
+  
+*/
 
 app.get('', (req, res) => {
   res.render('index', {
@@ -46,14 +68,28 @@ app.get('', (req, res) => {
   });
 });
 
+/*
+Met de onderstaande route haal ik data uit de bible API. Ik heb conditions gebruikt om te bepalen wat de gebruiker precies terug moet krijgen. 
+
+De gebruiker kan Chapters en Verses terug krijgen. Als de gebruiker niet benodigde data meegeeft moet hij de juiste foutmelding terug krijgen.
+
+
+*/
+
 app.get('/bible', (req, res) => {
-
   if (!req.query.book && !req.query.chapter && !req.query.verse) {
-
-    return res.status(404).send({ err: 'Fill in a request' });
+    getBook(url, bibleId, req.query.book, (err, bookData) => {
+      if (err) {
+        return res.status(404).send({ err });
+      }
+    });
 
   } else if (req.query.book && req.query.chapter && req.query.verse) {
 
+    /*
+    Hier gebruik de functies getBook en getVerse om verschillende data naar de gebruiker te sturen. De subtitle die te zien is op de page die komt bijvoorbeeld van de getbook function. Ik vond dit mooi om te displayen.
+    
+    */
     getBook(url, bibleId, req.query.book, (err, bookData) => {
       if (err) {
         return res.status(404).send({ err });
@@ -96,8 +132,9 @@ app.get('/about', (req, res) => {
   });
 })
 
-//OPTIONS
-
+/*
+Hiermee luitert de app naar connecties en stuurt hij een server terug.
+*/
 app.listen(port, () => console.log(`Server is running at http://localhost:${port}`));
 
 

@@ -8,7 +8,7 @@ const subtitle = document.querySelector('.subtitle');
 const nav = document.querySelectorAll('.nav');
 const prevBtn = document.querySelectorAll('.prev');
 const nextBtn = document.querySelectorAll('.next');
-const loader = document.querySelector('.gooey');
+
 
 const btn = document.querySelector('button');
 
@@ -16,26 +16,26 @@ const btn = document.querySelector('button');
 btn.addEventListener('click', (e) => {
   e.preventDefault();
 
-  title.textContent = '';
+  title.textContent = 'Loading..';
   subtitle.textContent = '';
   text.innerHTML = '';
   nav.forEach((btn) => {
     btn.style.visibility = 'hidden';
     btn.style.opacity = '0';
   })
-  loader.style.visibility = 'visible';
+
 
   if (book.value && number.value && !verse.value) {
     fetch(`/bible?book=${book.value}&chapter=${number.value}`).then((response) => {
-      response.json().then((data) => {
-        if (data.err) {
-          title.textContent = data.err;
+      response.json().then(({ err, chapterData, bookData }) => {
+        if (err) {
+          title.textContent = err;
         }
 
 
-        title.textContent = data.chapterData.data.reference;
-        subtitle.textContent = data.bookData.data.nameLong;
-        text.insertAdjacentHTML('beforeend', data.chapterData.data.content);
+        title.textContent = chapterData.data.reference;
+        subtitle.textContent = bookData.data.nameLong;
+        text.insertAdjacentHTML('beforeend', chapterData.data.content);
 
         //buttons
         nav.forEach((btn) => {
@@ -45,28 +45,35 @@ btn.addEventListener('click', (e) => {
 
       })
     });
+  } else if (!book.value) {
+
+    fetch(`/bible?book=${book.value}&chapter=${number.value}`).then((response) => {
+      response.json().then(({ err }) => {
+        if (err) {
+          title.textContent = err;
+        }
+      })
+    });
+
+
   } else {
     fetch(`/bible?book=${book.value}&chapter=${number.value}&verse=${verse.value}`).then((response) => {
-      response.json().then((data) => {
-        if (data.err) {
-          title.textContent = data.err;
+      response.json().then(({ err, verseData, bookData }) => {
+        if ({ err }) {
+          console(err);
         }
 
-        loader.style.visibility = 'hidden';
-        title.textContent = data.verseData.data.reference;
-        subtitle.textContent = data.bookData.data.nameLong;
-        text.insertAdjacentHTML('beforeend', data.verseData.data.content);
+        title.textContent = verseData.data.reference;
+        subtitle.textContent = bookData.data.nameLong;
+        text.insertAdjacentHTML('beforeend', verseData.data.content);
 
         nav.forEach((btn) => {
           btn.style.visibility = 'visible';
           btn.style.opacity = '1';
         })
-
-
       })
     });
   }
-  // console.log(bool.value);
 })
 
 
@@ -74,7 +81,7 @@ prevBtn.forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    title.textContent = '';
+    title.textContent = 'Loading..';
     subtitle.textContent = '';
     text.innerHTML = '';
 
@@ -83,23 +90,23 @@ prevBtn.forEach(btn => {
       btn.style.opacity = '0';
     })
 
-    loader.style.visibility = 'visible';
+
 
     if (!verse.value) {
       number.value = parseInt(number.value) - 1;
       fetch(`/bible?book=${book.value}&chapter=${number.value}`).then((response) => {
-        response.json().then((data) => {
-          if (data.err) {
-            title.textContent = data.err;
+        response.json().then(({ err, chapterData, bookData }) => {
+          if ({ err }) {
+            title.textContent = err;
           }
 
 
-          title.textContent = data.chapterData.data.reference;
-          subtitle.textContent = data.bookData.data.nameLong;
-          text.insertAdjacentHTML('beforeend', data.chapterData.data.content);
+          title.textContent = chapterData.data.reference;
+          subtitle.textContent = bookData.data.nameLong;
+          text.insertAdjacentHTML('beforeend', chapterData.data.content);
 
-          //buttons
           
+
 
           nav.forEach((btn) => {
             btn.style.visibility = 'visible';
@@ -112,18 +119,18 @@ prevBtn.forEach(btn => {
       verse.value = parseInt(verse.value) - 1;
 
       fetch(`/bible?book=${book.value}&chapter=${number.value}&verse=${verse.value}`).then((response) => {
-        response.json().then((data) => {
-          if (data.err) {
-            title.textContent = data.err;
+        response.json().then(({ err, verseData, bookData }) => {
+          if (err) {
+            title.textContent = err;
           }
 
 
 
-          title.textContent = data.verseData.data.reference;
-          subtitle.textContent = data.bookData.data.nameLong;
-          text.insertAdjacentHTML('beforeend', data.verseData.data.content);
+          title.textContent = verseData.data.reference;
+          subtitle.textContent = bookData.data.nameLong;
+          text.insertAdjacentHTML('beforeend', verseData.data.content);
 
-          //buttons
+          
           nav.forEach((btn) => {
             btn.style.visibility = 'visible';
             btn.style.opacity = '1';
@@ -137,40 +144,37 @@ prevBtn.forEach(btn => {
 });
 
 
-
-
 nextBtn.forEach((btn) => {
-
   btn.addEventListener('click', (e) => {
 
 
     e.preventDefault();
 
-    title.textContent = '';
+    title.textContent = 'Loading..';
     subtitle.textContent = '';
     text.innerHTML = '';
     nav.forEach((btn) => {
       btn.style.visibility = 'hidden';
       btn.style.opacity = '0';
     })
-    loader.style.visibility = 'visible';
+
 
 
     if (!verse.value) {
       number.value = parseInt(number.value) + 1;
       fetch(`/bible?book=${book.value}&chapter=${number.value}`).then((response) => {
-        response.json().then((data) => {
-          if (data.err) {
-            title.textContent = data.err;
+        response.json().then(({ err, chapterData, bookData }) => {
+          if (err) {
+            title.textContent = err;
           }
 
 
 
-          title.textContent = data.chapterData.data.reference;
-          subtitle.textContent = data.bookData.data.nameLong;
-          text.insertAdjacentHTML('beforeend', data.chapterData.data.content);
+          title.textContent = chapterData.data.reference;
+          subtitle.textContent = bookData.data.nameLong;
+          text.insertAdjacentHTML('beforeend', chapterData.data.content);
 
-          //buttons
+        
           nav.forEach((btn) => {
             btn.style.visibility = 'visible';
             btn.style.opacity = '1';
@@ -183,18 +187,18 @@ nextBtn.forEach((btn) => {
       verse.value = parseInt(verse.value) + 1;
 
       fetch(`/bible?book=${book.value}&chapter=${number.value}&verse=${verse.value}`).then((response) => {
-        response.json().then((data) => {
-          if (data.err) {
-            title.textContent = data.err;
+        response.json().then(({ err, verseData, bookData }) => {
+          if (err) {
+            title.textContent = err;
           }
 
 
 
-          title.textContent = data.verseData.data.reference;
-          subtitle.textContent = data.bookData.data.nameLong;
-          text.insertAdjacentHTML('beforeend', data.verseData.data.content);
+          title.textContent = verseData.data.reference;
+          subtitle.textContent = bookData.data.nameLong;
+          text.insertAdjacentHTML('beforeend', verseData.data.content);
 
-          //buttons
+      
           nav.forEach((btn) => {
             btn.style.visibility = 'visible';
             btn.style.opacity = '1';
