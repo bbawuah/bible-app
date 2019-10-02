@@ -1,8 +1,6 @@
-require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
-
 
 /*
 Voor deployment redenen heb ik een logical operator geplaatst in mijn port variabel.
