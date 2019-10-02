@@ -1,4 +1,8 @@
+require('dotenv').config();
 const request = require('request');
+
+const API_KEY = process.env.API_KEY;
+
 
 const getBook = (url, bibleId, book, callback) => {
   const options = {
@@ -7,7 +11,7 @@ const getBook = (url, bibleId, book, callback) => {
     */
     uri: `${url}${bibleId}/books/${book}`,
     headers: {
-      'api-key': '90219021be8ec41093e50f889350a668'
+      'api-key': API_KEY
     }
   };
   request(options, (error, response, body) => {

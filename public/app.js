@@ -10,6 +10,7 @@ const prevBtn = document.querySelectorAll('.prev');
 const nextBtn = document.querySelectorAll('.next');
 
 
+
 const btn = document.querySelector('button');
 
 

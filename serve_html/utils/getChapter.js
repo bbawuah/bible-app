@@ -1,3 +1,4 @@
+require('dotenv').config();
 const request = require('request');
 
 /*
@@ -8,7 +9,8 @@ BIJVOORBEELD PSALM 500 (BESTAAT NIET) -> MOET EEN ERROR TERUG KOPPELEN
 */
 
 const getChapter = (url, bibleId, book, chapter, callback) => {
-
+  
+  const API_KEY = process.env.API_KEY;
   const chapterId = `${book}.${chapter}`;
 
   const options = {
@@ -17,7 +19,7 @@ const getChapter = (url, bibleId, book, chapter, callback) => {
     */
     uri: `${url}${bibleId}/chapters/${chapterId}`,
     headers: {
-      'api-key': '90219021be8ec41093e50f889350a668'
+      'api-key': API_KEY
     }
   };
   request(options, (error, response, body) => {
