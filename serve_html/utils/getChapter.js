@@ -10,7 +10,6 @@ BIJVOORBEELD PSALM 500 (BESTAAT NIET) -> MOET EEN ERROR TERUG KOPPELEN
 
 const getChapter = (url, bibleId, book, chapter, callback) => {
   
-  const API_KEY = process.env.API_KEY;
   const chapterId = `${book}.${chapter}`;
 
   const options = {
