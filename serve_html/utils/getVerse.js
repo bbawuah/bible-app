@@ -1,4 +1,5 @@
 const request = require('request');
+require('dotenv').config({ silent: process.env.NODE_ENV === 'production' });
 const {masterKey} = require('../config');
 
 /*
