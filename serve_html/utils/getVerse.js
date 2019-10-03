@@ -1,5 +1,5 @@
 const request = require('request');
-
+const {masterKey} = require('../config');
 
 /*
 BELANGRIJK IS OM EEN LOGICA TE BEDENKEN DIE CHECKT HOEVEEL CHAPTERS
@@ -19,7 +19,7 @@ const getVerse = (url, bibleId, book, chapter, verse, callback) => {
     */
     uri: `${url}${bibleId}/verses/${verseId}`,
     headers: {
-      'api-key': '90219021be8ec41093e50f889350a668' 
+      'api-key': masterKey 
     }
   };
   request(options, (error, response, body) => {
