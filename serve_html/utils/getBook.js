@@ -1,5 +1,4 @@
 const request = require('request');
-const { masterKey } = require('../config');
 
 
 
@@ -10,7 +9,7 @@ const getBook = (url, bibleId, book, callback) => {
     */
     uri: `${url}${bibleId}/books/${book}`,
     headers: {
-      'api-key': masterKey
+      'api-key': '90219021be8ec41093e50f889350a668'
     }
   };
   request(options, (error, response, body) => {
