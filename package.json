@@ -7,7 +7,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node serve_html/app.js",
+    "start": "node -r dotenv/config serve_html/app.js",
     "start_local": "node -r dotenv/config serve_html/app.js",
     "dev": "nodemon -r dotenv/config serve_html/app.js"
   },
