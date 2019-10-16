@@ -43,11 +43,17 @@ h4 {
 
 p {
   font-size: 1em;
+  width: 60ch;
+}
+
+article h2, article h3, article .text {
+  text-align: center;
 }
 
 a, a:visited {
   color: #1a202c;
   text-decoration: none;
+  padding: 2vmax;
 }
 
 header, footer, section.grid-about {
@@ -81,31 +87,78 @@ footer {
   width: 100%;
 }
 
-section {
+section{
+  padding: 2vmax 0;
+}
+
+.grid {
   padding: 2vmax 8vmax;
 }
 
-@media screen and (max-width: 700px) {
+/* Loading animation */
+.loading{
+  border: 6px solid #ccc;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border-top-color: #4fd1c5;
+  border-left-color: #4fd1c5;
+  animation: spin 1.5s infinite ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  justify-self: center;
+} 
+
+
+@keyframes spin{
+  0%{
+    transform: rotate(0deg);
+  }
+
+  50%{
+    transform: rotate(360deg);
+  }
+
+  100%{
+    transform: rotate(1080deg);
+  }
+}
+
+@media screen and (max-width: 865px) {
   section {
     padding: 2vmax;
   }
   header, footer, section.grid-about {
     padding: 2vmax;
   }
+
+  p{
+    width: 100%;
+  }
+
   input, button, select {
     display: block;
     margin-bottom: 0.5em;
     width: 100%;
   }
+
+   section[class] section:nth-child(2){
+     margin: 2vmax;
+
+   }
+
   section.grid {
     padding: 4vmax 0;
   }
-  .nav {
+
+  nav {
     display: flex;
     flex-direction: row;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
   }
-  .nav button {
+  nav button {
     height: initial;
     margin-right: 0.5em;
   }
@@ -124,7 +177,7 @@ form input, form option, form select, form button, form button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  padding: 3vmin;
+  padding: 3vmin 1vmin;
   border-radius: 8px;
   border: none;
   background: #edf2f7;
@@ -152,6 +205,7 @@ section[class] section:nth-child(2) {
   overflow-y: scroll;
   margin-bottom: 8em;
   border-radius: 8px;
+  padding: 2vmax;
 }
 
 section[class] section article {
@@ -177,18 +231,15 @@ section[class] section>p {
   justify-content: flex-end;
 }
 
-section[class] section:nth-child(2)>a {
-  /* align-self: flex-end; */
-}
-
 .text p {
-  font-size: 1rem;
-  margin: 1vmax 0;
+  font-size: 1.2rem;
+  margin: 0 auto;
 }
 
 .text p span {
   margin-right: 0.5rem;
-  font-weight: 500;
+  font-weight: 700;
+  color: #4fd1c5;
   /* display: block; */
   margin-top: 0.5em;
 }
@@ -197,7 +248,7 @@ section[class] section:nth-child(2)>a {
   border-bottom: 2px solid #4299e1;
 }
 
-.nav {
+nav {
   visibility: hidden;
   opacity: 0;
 }
