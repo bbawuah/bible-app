@@ -209,9 +209,9 @@ form input, form option, form select, form button {
 form input:focus, form select:focus{
 
   transition: 0.3s ease-in-out;
-}
-form input:focus, form select:focus{
   font-size: 1.1em;
+  outline: none;
+  background: #E2E8F0;
 }
 
 form button {
