@@ -189,7 +189,33 @@ form input, form option, form select, form button, form button {
 form button {
   background: #4fd1c5;
   color: white;
+  position: relative;
+  overflow: hidden;
+  transition: 1s all cubic-bezier(1,.06,0,1.58);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
+
+form button::before{
+  background: #2C7A7B;
+  content: '';
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: .3;
+  transition: all 0.6s cubic-bezier(1,.06,0,1.58);
+}
+
+form button:hover::before{
+  width: 100%;
+}
+
+
+
+
 
 form p {
   padding-bottom: 1vmax;
