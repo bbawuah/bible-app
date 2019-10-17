@@ -11,7 +11,6 @@ const nextBtn = document.querySelectorAll('.next');
 const loading = document.querySelector('.loading');
 
 
-
 const btn = document.querySelector('button');
 
 
