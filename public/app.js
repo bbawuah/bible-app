@@ -33,7 +33,7 @@ btn.addEventListener('click', (e) => {
   if (book.value && number.value && !verse.value) {
     fetch(`/bible?book=${book.value}&chapter=${number.value}`).then((response) => {
       response.json().then(({ err, chapterData, bookData }) => {
-        if (err || !number.value == number) {
+        if (err || number.value !== number) {
           loading.style.visibility = 'hidden';
           loading.style.opacity = 0;
           title.textContent = err;
