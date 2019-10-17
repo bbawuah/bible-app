@@ -24,7 +24,7 @@ html, body {
   line-height: 1.35;
 }
 
-body {
+.body-animation {
   position: relative;
   background: #ffffff;
   overflow-x: hidden;
@@ -43,7 +43,7 @@ body {
 }
 
 
-body::before {
+.body-animation::before {
   content: '';
   background: #234E52;
   opacity: 0;
@@ -109,6 +109,10 @@ a, a:visited {
   padding: 2vmax;
 }
 
+header a{
+  padding: 0;
+}
+
 header, footer, section.grid-about {
   padding: 2vmax 8vmax;
   /* width:  */
@@ -162,6 +166,7 @@ section {
   opacity: 0;
   grid-column-start: 1;
   grid-column-end: 3;
+  transition: 0.3s ease-in-out;
   justify-self: center;
 }
 
