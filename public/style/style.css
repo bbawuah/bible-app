@@ -29,7 +29,7 @@ body {
   background: #ffffff;
   overflow-x: hidden;
   opacity: 1;
-  animation: fadeIn 2.9s ease-out;
+  animation: fadeIn 1.5s ease-out;
 }
 
 @keyframes fadeIn {
