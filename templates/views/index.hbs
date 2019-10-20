@@ -4,23 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="Bible application created by Brian Bawuah">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style/style.css">
   <script src="https://kit.fontawesome.com/fe0a83848e.js" crossorigin="anonymous"></script>
   <title>My bible app</title>
 </head>
 
-<body class="body-animation"> 
+<body class="body-animation">
   {{>header}}
-   <main>
+  <main>
     <section class="grid">
       {{!-- Section van input --}}
       <section>
         <form action="">
           <p>Find your favorite bible verse</p>
-          <label for="books">
+          <label for="Books">Books
             {{!-- Ik zoek eigenlijk een manier waarmee de options kan inladen uit de Bible api.. --}}
-            <select name="books" id="books" required>
+            <select name="Books" id="books" required>
               <option value="">Select a book</option>
               <option value="GEN">Genesis</option>
               <option value="EXO">Exodus</option>
@@ -90,11 +91,11 @@
               <option value="REV">Revelation</option>
             </select>
           </label>
-          <label for="chapter">
-            <input type="number" name="chapter" class="number" min="1" placeholder="Chapter" required>
+          <label for="Chapter">Chapter
+            <input type="number" name="Chapter" class="number" min="1" placeholder="Chapter" required>
           </label>
-          <label for="verse">
-            <input type="number" name="verse" class="verse" placeholder="Verse">
+          <label for="Verse">Verse
+            <input type="number" name="Verse" class="verse" placeholder="Verse">
           </label>
           <button type="button">Search</button>
         </form>
@@ -112,13 +113,13 @@
           <h3 class="subtitle"></h3>
           <div class="text"></div>
         </article>
-           <nav>
+        <nav>
           <button class="prev">Prev</button>
           <button class="next">Next</button>
         </nav>
       </section>
     </section>
-  </main> 
+  </main>
   {{>footer}}
   <script src="app.js"></script>
 </body>

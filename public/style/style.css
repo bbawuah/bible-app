@@ -307,7 +307,7 @@ nav {
   opacity: 0;
 }
 
-@media screen and (max-width: 865px) {
+@media screen and (max-width: 1085px) {
   section {
     padding: 2vmax;
   }
