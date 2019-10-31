@@ -18,12 +18,15 @@ btn.addEventListener('click', (e) => {
   e.preventDefault();
 
   console.log(number.value === number);
-  
+
   title.textContent = '';
   subtitle.textContent = '';
   text.innerHTML = '';
   loading.style.visibility = 'visible';
   loading.style.opacity = 1;
+  book.style.background = '#edf2f7';
+  number.style.background = '#edf2f7';
+  verse.style.background = '#edf2f7';
   nav.forEach((btn) => {
     btn.style.visibility = 'hidden';
     btn.style.opacity = '0';
@@ -37,12 +40,17 @@ btn.addEventListener('click', (e) => {
           loading.style.visibility = 'hidden';
           loading.style.opacity = 0;
           title.textContent = err;
+          number.style.background = '#FEB2B2';
+
         }
 
 
         title.textContent = chapterData.data.reference;
         subtitle.textContent = bookData.data.nameLong;
         text.insertAdjacentHTML('beforeend', chapterData.data.content);
+        number.style.background = '#edf2f7';
+        
+
 
         //loading
 
@@ -58,13 +66,13 @@ btn.addEventListener('click', (e) => {
       })
     });
   } else if (!book.value) {
-
     fetch(`/bible?book=${book.value}&chapter=${number.value}`).then((response) => {
       response.json().then(({ err }) => {
         if (err) {
           loading.style.visibility = 'hidden';
           loading.style.opacity = 0;
           title.textContent = err;
+          book.style.background = '#FEB2B2';
         }
       })
     });
@@ -76,6 +84,7 @@ btn.addEventListener('click', (e) => {
         if ({ err }) {
           title.textContent = err;
           //loading
+          verse.style.background = '#FEB2B2';
           loading.style.visibility = 'hidden';
           loading.style.opacity = 0;
         }
@@ -86,6 +95,7 @@ btn.addEventListener('click', (e) => {
         title.textContent = verseData.data.reference;
         subtitle.textContent = bookData.data.nameLong;
         text.insertAdjacentHTML('beforeend', verseData.data.content);
+        verse.style.background = '#edf2f7';
 
         const arr = Array.from(nav);
         const navArr = arr.splice(1);
@@ -165,10 +175,10 @@ prevBtn.forEach(btn => {
           text.insertAdjacentHTML('beforeend', verseData.data.content);
 
 
-          
+
           const arr = Array.from(nav);
           const navArr = arr.splice(1);
-          
+
           navArr.forEach((btn) => {
             btn.style.visibility = 'visible';
             btn.style.opacity = '1';

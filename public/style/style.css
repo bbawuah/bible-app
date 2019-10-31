@@ -51,7 +51,7 @@ article h2, article h3, article .text {
   text-align: center;
 }
 
-a, a:visited {
+a, header a:visited {
   color: #1a202c;
   text-decoration: none;
   padding: 2vmax;
@@ -60,6 +60,8 @@ a, a:visited {
 header a{
   padding: 0;
 }
+
+
 
 header, footer, section.grid-about {
   padding: 2vmax 8vmax;
@@ -91,6 +93,7 @@ footer {
   left: 0;
   width: 100%;
 }
+
 
 section {
   padding: 2vmax 0;
@@ -155,7 +158,6 @@ form input, form option, form select, form button {
 }
 
 form input:focus, form select:focus{
-
   transition: 0.3s ease-in-out;
   font-size: 1.1em;
   outline: none;
@@ -181,7 +183,7 @@ form button::before {
   transform: translate(-50%, -50%);
   z-index: 1;
   opacity: .3;
-  transition: all 0.6s cubic-bezier(1, .06, 0, 1.58);
+  transition: all 0.1s cubic-bezier(1, .06, 0, 1.58);
 }
 
 form button:hover::before {
@@ -189,8 +191,7 @@ form button:hover::before {
 }
 
 form button:active::before {
-  /* width: 200%; */
-  background: black;
+  width: 200%;
 }
 
 form p {
@@ -203,7 +204,6 @@ section[class] section:nth-child(2) {
   justify-content: space-between;
   align-items: center;
   grid-template-columns: 1fr 1fr;
-  /* max-height: 50vmax; */
   overflow-y: scroll;
   margin-bottom: 8em;
   border-radius: 8px;
@@ -255,7 +255,7 @@ nav {
   opacity: 0;
 }
 
-@media screen and (max-width: 1085px) {
+@media screen and (max-width: 1220px) {
   section {
     padding: 2vmax;
   }
@@ -282,6 +282,7 @@ nav {
     flex-wrap: wrap;
   }
   nav button {
+    
     height: initial;
     margin-right: 0.5em;
   }
