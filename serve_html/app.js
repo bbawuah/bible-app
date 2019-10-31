@@ -65,7 +65,7 @@ BibleApiEndpoints
 app.get('', (req, res) => {
   res.render('index', {
     title: 'My bible',
-    name: 'Brian Bawuah'
+    name: 'God'
   });
 });
 
